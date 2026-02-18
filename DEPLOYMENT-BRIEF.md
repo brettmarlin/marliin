@@ -20,7 +20,7 @@ A single-page marketing site for Marliin, Brett Marlin's design-led AI consultan
 ### Recommended Stack
 - **Vite + React** (lightweight, fast builds, native Cloudflare Pages support)
 - **No CSS framework** (all styles are custom, inline + CSS-in-JS via `<style>` tag)
-- **No backend** (static site, all links are external)
+- **Sanity CMS** (build-time content fetch; content in Credentials, Practice Cases, Lab, Log)
 - **Google Fonts** loaded via `<link>` (Cormorant Garamond + DM Sans)
 
 ### File Structure
@@ -30,6 +30,7 @@ marliin.com/
 │   ├── images/
 │   │   ├── brett-illustrated.jpg    (portrait, 500px)
 │   │   ├── boston-marathon.jpg       (story section, 900px)
+│   │   ├── marliin-wordmark.png     (header/footer logo)
 │   │   ├── sf-bay-sunset.jpg        (strip, 600x280)
 │   │   ├── sf-rooftops.jpg          (strip, 600x280)
 │   │   ├── sf-bay-pano.jpg          (strip, 600x280)
@@ -37,12 +38,21 @@ marliin.com/
 │   │   ├── sf-pier.jpg              (strip, 600x280)
 │   │   └── sf-transamerica.jpg      (strip, 600x280)
 │   └── favicon.svg                   (marliin logo mark)
+├── sanity/
+│   └── schema/                      (Cred, Practice Case, Lab, Log)
+├── scripts/
+│   ├── fetch-content.js             (build-time Sanity fetch)
+│   ├── run-studio.js                (Sanity Studio launcher)
+│   └── seed-content.js              (initial content migration)
 ├── src/
 │   ├── App.jsx                       (main site component)
+│   ├── data/content.json            (CMS content, generated at build)
 │   ├── main.jsx                      (entry point)
 │   └── index.css                     (global resets + font imports)
 ├── index.html
 ├── package.json
+├── sanity.config.js
+├── sanity.cli.js
 ├── vite.config.js
 └── wrangler.toml                     (Cloudflare Pages config)
 ```

@@ -1,0 +1,29 @@
+# Marliin.com - Cursor Rules
+
+## Project Context
+This is the marketing site for Marliin, Brett Marlin's design-led AI consultancy. 
+Single-page React site deploying to Cloudflare Pages.
+
+## Design Decisions (All Locked)
+- Every design decision in App.jsx is intentional. Do not change layout, spacing, typography, or color without explicit instruction.
+- Brand color (cognac): #B8652A — the ONLY accent color
+- Background: #FAF7F2 (cream), Dark sections: #1A1714 (charcoal)
+- Heading font: Cormorant Garamond. Body font: DM Sans.
+- Body text uses font-weight 300 for airiness.
+- No em-dashes in any copy. Use commas or periods.
+- No emojis anywhere on the site.
+- Animations use IntersectionObserver with translateY(36px) reveal, 0.9s cubic-bezier(.16,1,.3,1)
+
+## Architecture
+- Single component in App.jsx (intentionally monolithic for simplicity)
+- All images in /public/images/ referenced by path
+- No CSS framework — all custom styles
+- No backend, no CMS, no forms
+- External links: Google Calendar booking, MAF Machine subdomain, LinkedIn, Substack
+
+## When Making Changes
+- Preserve all scroll-linked animations
+- Preserve the photo strip infinite scroll behavior
+- Preserve mobile responsive breakpoints (768px)
+- Test both light (#FAF7F2) and dark (#1A1714) sections for contrast
+- The Logo SVG component renders the double-i brand mark — do not modify

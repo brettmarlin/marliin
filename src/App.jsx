@@ -43,7 +43,7 @@ function R({ children, delay = 0, className = "" }) {
 function Logo() {
   return (
     <img
-      src="/images/marliin-wordmark.png"
+      src="/images/marliin-logo.png"
       alt="Marliin"
       width={83}
       height={20}

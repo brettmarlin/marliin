@@ -40,18 +40,15 @@ function R({ children, delay = 0, className = "" }) {
   );
 }
 
-function Logo({ light = false }) {
-  const c = light ? "#FAF7F2" : "#1A1714";
+function Logo() {
   return (
-    <svg width="124" height="30" viewBox="0 0 124 30" fill="none">
-      <text x="0" y="23" fontFamily="'Cormorant Garamond',Georgia,serif" fontSize="25" fontWeight="600" fill={c} letterSpacing="0.4">Marl</text>
-      <line x1="56.5" y1="11" x2="56.5" y2="23" stroke={c} strokeWidth="1.8" />
-      <circle cx="56.5" cy="5.5" r="2.1" fill={c} />
-      <line x1="64.5" y1="11" x2="64.5" y2="23" stroke={c} strokeWidth="1.8" />
-      <circle cx="64.5" cy="5.5" r="3.2" fill="none" stroke={c} strokeWidth="1.4" />
-      <circle cx="64.5" cy="5.5" r="0.8" fill={c} />
-      <text x="71" y="23" fontFamily="'Cormorant Garamond',Georgia,serif" fontSize="25" fontWeight="600" fill={c} letterSpacing="0.4">n</text>
-    </svg>
+    <img
+      src="/images/marliin-wordmark.png"
+      alt="Marliin"
+      width={83}
+      height={20}
+      style={{ display: "block", height: 20, width: "auto" }}
+    />
   );
 }
 
@@ -79,36 +76,22 @@ function PhotoStrip() {
 }
 
 /* ═══ DATA ═══ */
+import content from "./data/content.json";
+
 const A = "#B8652A";
 const CAL = "https://calendar.app.google/ZBtcWj5AGEhxoN197";
 
-const CREDS = [
-  { name: "Carta", role: "VP Product Design" },
-  { name: "Mixpanel", role: "Head of Design" },
-  { name: "Blend", role: "Head of Product Design" },
-  { name: "Altana AI", role: "Head of Product Design" },
-  { name: "AOL", role: "Agency Partner" },
-  { name: "McKinsey", role: "Agency Partner" },
-];
+const FALLBACK = {
+  creds: [{ name: "Altana AI", role: "Head of Product Design" }, { name: "Carta", role: "Head of Product Design" }, { name: "Mixpanel", role: "Head of Design" }, { name: "Blend", role: "Head of Product Design" }, { name: "AOL", role: "Agency Partner" }],
+  cases: [{ title: "Product Strategy Sprint", desc: "A seed-stage founder with a vision and a pitch deck needs to get to a working product and a team plan before their next raise. We align on what to build, prototype it live, and map the path to launch." }, { title: "Agent-Enabled Operations", desc: "A mid-market company wants to understand where AI agents can transform their workflows. We identify the highest-value opportunities, build working proofs of concept, and design the human-in-the-loop roles to sustain them." }, { title: "Team Architecture for AI", desc: "A growing company has hired well but the org chart was designed before agents existed. We redesign team structures, decision flows, and tooling to unlock what a leaner, AI-augmented team can actually deliver." }, { title: "Design System + AI Tooling", desc: "A product team is shipping fast but quality is inconsistent and the design system is fracturing. We rebuild the system with AI-augmented workflows that maintain craft at speed." }],
+  labs: [{ title: "MAF Machine", status: "Live", desc: "A training coach for endurance runners doing Maximal Aerobic Function (MAF) training. Integrates with Strava to analyze heart rate zones, track aerobic development, and optimize pacing for marathons and ultra distances.", cap: "Strava API, AI coaching, aerobic analytics", link: "https://maf.marliin.com" }, { title: "Tether", status: "In Development", desc: "A semantic reprogramming platform that uses CBT, ACT, and EMDR methodologies to help people rewire limiting beliefs through the power of their own language. AI meets therapeutic methodology meets behavioral design.", cap: "AI therapeutic methodology, behavioral design", link: null }, { title: "Next Build", status: "Exploring", desc: "Local AI paradigms, OpenClaw, and the frontier of private intelligence infrastructure. Documenting everything as it unfolds.", cap: "Local AI, privacy-first architecture", link: null }],
+  logs: [{ date: "Feb 2026", title: "Exploring local AI and OpenClaw", body: "The paradigm of private, local intelligence is accelerating faster than most people realize. Installing, testing, and documenting what this means for companies that need AI but cannot send data to the cloud." }, { date: "Feb 2026", title: "MAF Machine ships to Strava runners", body: "First product in the Lab goes live. An AI training coach for MAF runners, built end-to-end with AI-augmented development. What would have taken a team of four about three weeks took two days. The craft bar did not drop. That is the point." }, { date: "Jan 2026", title: "Launching Marliin: intelligence, added", body: "After 25 years designing products and building teams at companies like Carta, Mixpanel, and Blend, the landscape has shifted enough that one designer with the right agents can deliver what used to require a department. This is the practice built for that moment." }],
+};
 
-const CASES = [
-  { title: "Product Strategy Sprint", desc: "A seed-stage founder with a vision and a pitch deck needs to get to a working product and a team plan before their next raise. We align on what to build, prototype it live, and map the path to launch." },
-  { title: "Agent-Enabled Operations", desc: "A mid-market company wants to understand where AI agents can transform their workflows. We identify the highest-value opportunities, build working proofs of concept, and design the human-in-the-loop roles to sustain them." },
-  { title: "Team Architecture for AI", desc: "A growing company has hired well but the org chart was designed before agents existed. We redesign team structures, decision flows, and tooling to unlock what a leaner, AI-augmented team can actually deliver." },
-  { title: "Design System + AI Tooling", desc: "A product team is shipping fast but quality is inconsistent and the design system is fracturing. We rebuild the system with AI-augmented workflows that maintain craft at speed." },
-];
-
-const LABS = [
-  { title: "MAF Machine", status: "Live", desc: "A training coach for endurance runners doing Maximal Aerobic Function (MAF) training. Integrates with Strava to analyze heart rate zones, track aerobic development, and optimize pacing for marathons and ultra distances.", cap: "Strava API, AI coaching, aerobic analytics", link: "https://maf.marliin.com" },
-  { title: "Tether", status: "In Development", desc: "A semantic reprogramming platform that uses CBT, ACT, and EMDR methodologies to help people rewire limiting beliefs through the power of their own language. AI meets therapeutic methodology meets behavioral design.", cap: "AI therapeutic methodology, behavioral design", link: null },
-  { title: "Next Build", status: "Exploring", desc: "Local AI paradigms, OpenClaw, and the frontier of private intelligence infrastructure. Documenting everything as it unfolds.", cap: "Local AI, privacy-first architecture", link: null },
-];
-
-const LOGS = [
-  { date: "Feb 2026", title: "Launching Marliin: intelligence, added", body: "After 25 years designing products and building teams at companies like Carta, Mixpanel, and Blend, the landscape has shifted enough that one designer with the right agents can deliver what used to require a department. This is the practice built for that moment." },
-  { date: "Feb 2026", title: "MAF Machine ships to Strava runners", body: "First product in the Lab goes live. An AI training coach for MAF runners, built end-to-end with AI-augmented development. What would have taken a team of four about three weeks took two days. The craft bar did not drop. That is the point." },
-  { date: "Feb 2026", title: "Exploring local AI and OpenClaw", body: "The paradigm of private, local intelligence is accelerating faster than most people realize. Installing, testing, and documenting what this means for companies that need AI but cannot send data to the cloud." },
-];
+const CREDS = content?.creds?.length ? content.creds : FALLBACK.creds;
+const CASES = content?.cases?.length ? content.cases : FALLBACK.cases;
+const LABS = content?.labs?.length ? content.labs : FALLBACK.labs;
+const LOGS = content?.logs?.length ? content.logs : FALLBACK.logs;
 
 /* ═══ MAIN ═══ */
 export default function App() {
@@ -206,8 +189,8 @@ export default function App() {
           </div>
           <R delay={0.15}>
             <h1 className="hx" style={{ marginBottom: 40 }}>
-              <span style={{ display: "block" }}>Intelligence,</span>
-              <span style={{ display: "block", color: A }}>added.</span>
+              <span style={{ display: "block" }}>Experience,</span>
+              <span style={{ display: "block", color: A }}>in-the-loop.</span>
             </h1>
           </R>
           <R delay={0.3}>

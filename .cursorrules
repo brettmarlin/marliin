@@ -18,7 +18,7 @@ Single-page React site deploying to Cloudflare Pages.
 - Single component in App.jsx (intentionally monolithic for simplicity)
 - All images in /public/images/ referenced by path
 - No CSS framework — all custom styles
-- No backend, no CMS, no forms
+- Content from Sanity CMS (build-time fetch). No forms.
 - External links: Google Calendar booking, MAF Machine subdomain, LinkedIn, Substack
 
 ## When Making Changes
@@ -26,4 +26,4 @@ Single-page React site deploying to Cloudflare Pages.
 - Preserve the photo strip infinite scroll behavior
 - Preserve mobile responsive breakpoints (768px)
 - Test both light (#FAF7F2) and dark (#1A1714) sections for contrast
-- The Logo SVG component renders the double-i brand mark — do not modify
+- The Logo component renders the Marliin wordmark image — do not modify

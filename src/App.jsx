@@ -228,15 +228,18 @@ export default function App() {
           <R><div className="dv" style={{ marginBottom: 48 }} /></R>
           <div className="g2">
             <R>
-              <p className="bs" style={{ marginBottom: 16 }}>The Name</p>
-              <h2 className="hm">Two letters.<br />Two kinds of intelligence.</h2>
+              <p className="bs" style={{ marginBottom: 16 }}>The Model</p>
+              <h2 className="hm">Deep Experience.<br />Broad Skillset.<br />Agent-Level Execution.</h2>
             </R>
             <R delay={0.15}>
-              <p className="bl">
-                Marliin is Brett Marlin's last name with an extra "i" for intelligence. The double "i" is the brand. One stands for the human designer. Twenty-five years of building products, leading teams, and shipping work that matters. The other stands for the AI agents and tools that now amplify what one expert practitioner can deliver.
+            <p className="bl">
+              The Double-i - Marliin started with one senior practitioner carrying 25 years across Product Design, UX Research, Marketing, Technology, go-to-market, and building the teams that deliver. A generalist who has led the entire surface area and knows where the leverage is.
               </p>
               <p className="bl" style={{ marginTop: 16 }}>
-                In the logo, one dot is solid. The other is a loop. That is the whole philosophy: human craft, amplified by machine intelligence, working in a continuous loop.
+              That expertise now runs inside a loop with AI agents that research, build, test, and ship alongside the human who directs them. One person, amplified. Faster cycle times, broader coverage, sharper output enabling our customers to get to outcomes faster. 
+              </p>
+              <p className="bl" style={{ marginTop: 16 }}>
+              Human experts looped into the machine. Marliin is building a practice of senior specialists who each operate this way, extending the expert-in-the-loop to every discipline that matters in bleeding-edge companies that want an edge.
               </p>
             </R>
           </div>

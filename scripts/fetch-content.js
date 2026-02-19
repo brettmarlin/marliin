@@ -22,11 +22,12 @@ const client = createClient({
 });
 
 async function fetchContent() {
-  const [creds, cases, labs, logs] = await Promise.all([
+  const [creds, cases, labs, logs, heroWords] = await Promise.all([
     client.fetch(`*[_type == "cred"] | order(name asc) { name, role }`),
     client.fetch(`*[_type == "practiceCase"] | order(title asc) { title, desc }`),
     client.fetch(`*[_type == "lab"] | order(title asc) { title, status, desc, cap, link }`),
     client.fetch(`*[_type == "log"] | order(date desc) { date, title, body }`),
+    client.fetch(`*[_type == "heroWords"][0].words`),
   ]);
 
   const content = {
@@ -34,6 +35,7 @@ async function fetchContent() {
     cases: cases || [],
     labs: labs || [],
     logs: logs || [],
+    heroWords: heroWords || ["Experience"],
   };
 
   const outPath = join(__dirname, "..", "src", "data", "content.json");

@@ -1,25 +1,90 @@
 {
   "creds": [
-    { "name": "Altana AI", "role": "Head of Product Design" },
-    { "name": "Carta", "role": "Head of Product Design" },
-    { "name": "Mixpanel", "role": "Head of Design" },
-    { "name": "Blend", "role": "Head of Product Design" },
-    { "name": "AOL", "role": "Agency Partner" }
+    {
+      "name": "AOL",
+      "role": "Agency Partner"
+    },
+    {
+      "name": "Altana AI",
+      "role": "Head of Product Design"
+    },
+    {
+      "name": "Blend",
+      "role": "Head of Product Design"
+    },
+    {
+      "name": "Carta",
+      "role": "Head of Product Design"
+    },
+    {
+      "name": "Mixpanel",
+      "role": "Head of Design"
+    }
   ],
   "cases": [
-    { "title": "Product Strategy Sprint", "desc": "A seed-stage founder with a vision and a pitch deck needs to get to a working product and a team plan before their next raise. We align on what to build, prototype it live, and map the path to launch." },
-    { "title": "Agent-Enabled Operations", "desc": "A mid-market company wants to understand where AI agents can transform their workflows. We identify the highest-value opportunities, build working proofs of concept, and design the human-in-the-loop roles to sustain them." },
-    { "title": "Team Architecture for AI", "desc": "A growing company has hired well but the org chart was designed before agents existed. We redesign team structures, decision flows, and tooling to unlock what a leaner, AI-augmented team can actually deliver." },
-    { "title": "Design System + AI Tooling", "desc": "A product team is shipping fast but quality is inconsistent and the design system is fracturing. We rebuild the system with AI-augmented workflows that maintain craft at speed." }
+    {
+      "desc": "Companies want to understand how AI agents can transform their workflows. We identify the highest-value opportunities, build working proofs of concept, and design the human-in-the-loop roles to sustain them.",
+      "title": "Agent-Enabled Operations"
+    },
+    {
+      "desc": "A product team is shipping fast but quality is inconsistent and the design system is fracturing. We rebuild the system with AI-augmented workflows that maintain craft at speed.",
+      "title": "Design System + AI Tooling"
+    },
+    {
+      "desc": "A seed-stage founder with a vision and a pitch deck needs to get to a working product and a team plan before their next raise. We align on what to build, prototype it live, and map the path to launch.",
+      "title": "Product Strategy Sprint"
+    },
+    {
+      "desc": "A growing company has hired well but the org chart was designed before agents existed. We redesign team structures, decision flows, and tooling to unlock what a leaner, AI-augmented team can actually deliver.",
+      "title": "Team Architecture for AI"
+    }
   ],
   "labs": [
-    { "title": "MAF Machine", "status": "Live", "desc": "A training coach for endurance runners doing Maximal Aerobic Function (MAF) training. Integrates with Strava to analyze heart rate zones, track aerobic development, and optimize pacing for marathons and ultra distances.", "cap": "Strava API, AI coaching, aerobic analytics", "link": "https://maf.marliin.com" },
-    { "title": "Tether", "status": "In Development", "desc": "A semantic reprogramming platform that uses CBT, ACT, and EMDR methodologies to help people rewire limiting beliefs through the power of their own language. AI meets therapeutic methodology meets behavioral design.", "cap": "AI therapeutic methodology, behavioral design", "link": null },
-    { "title": "Next Build", "status": "Exploring", "desc": "Local AI paradigms, OpenClaw, and the frontier of private intelligence infrastructure. Documenting everything as it unfolds.", "cap": "Local AI, privacy-first architecture", "link": null }
+    {
+      "cap": "Strava API, AI coaching, aerobic analytics",
+      "desc": "A training coach for endurance runners doing Maximal Aerobic Function (MAF) training. Integrates with Strava to analyze heart rate zones, track aerobic development, and optimize pacing for marathons and ultra distances.",
+      "link": "https://maf.marliin.com",
+      "status": "Live",
+      "title": "MAF Machine"
+    },
+    {
+      "cap": "Local AI, privacy-first architecture",
+      "desc": "Local AI paradigms, OpenClaw, and the frontier of private intelligence infrastructure. Documenting everything as it unfolds.",
+      "link": null,
+      "status": "Exploring",
+      "title": "Next Build"
+    },
+    {
+      "cap": "AI therapeutic methodology, behavioral design",
+      "desc": "A semantic reprogramming platform that uses CBT, ACT, and EMDR methodologies to help people rewire limiting beliefs through the power of their own language. AI meets therapeutic methodology meets behavioral design.",
+      "link": null,
+      "status": "In Development",
+      "title": "Tether"
+    }
   ],
   "logs": [
-    { "date": "Feb 2026", "title": "Exploring local AI and OpenClaw", "body": "The paradigm of private, local intelligence is accelerating faster than most people realize. Installing, testing, and documenting what this means for companies that need AI but cannot send data to the cloud." },
-    { "date": "Feb 2026", "title": "MAF Machine ships to Strava runners", "body": "First product in the Lab goes live. An AI training coach for MAF runners, built end-to-end with AI-augmented development. What would have taken a team of four about three weeks took two days. The craft bar did not drop. That is the point." },
-    { "date": "Jan 2026", "title": "Launching Marliin: intelligence, added", "body": "After 25 years designing products and building teams at companies like Carta, Mixpanel, and Blend, the landscape has shifted enough that one designer with the right agents can deliver what used to require a department. This is the practice built for that moment." }
+    {
+      "body": "After 25 years designing products and building teams at companies like Carta, Mixpanel, and Blend, the landscape has shifted enough that one designer with the right agents can deliver what used to require a department. This is the practice built for that moment.",
+      "date": "Jan 2026",
+      "title": "Launching Marliin: intelligence, added"
+    },
+    {
+      "body": "First product in the Lab goes live. An AI training coach for MAF runners, built end-to-end with AI-augmented development. What would have taken a team of four about three weeks took two days. The craft bar did not drop. That is the point.",
+      "date": "Feb 2026",
+      "title": "MAF Machine ships to Strava runners"
+    },
+    {
+      "body": "The paradigm of private, local intelligence is accelerating faster than most people realize. Installing, testing, and documenting what this means for companies that need AI but cannot send data to the cloud.",
+      "date": "Feb 2026",
+      "title": "Exploring local AI and OpenClaw"
+    }
+  ],
+  "heroWords": [
+    "Experience",
+    "Product Design",
+    "Product Management",
+    "Product Strategy",
+    "Customer Intelligence",
+    "Product Leadership"
   ]
 }

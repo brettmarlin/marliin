@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import RotatingWord from './RotatingWord';
 
 /* ═══ HOOKS ═══ */
 function useInView(opts = {}) {
@@ -95,6 +96,20 @@ const LOGS = content?.logs?.length ? content.logs : FALLBACK.logs;
 
 /* ═══ MAIN ═══ */
 export default function App() {
+
+  const [heroWords, setHeroWords] = useState(content.heroWords || ["Experience"]);
+
+  useEffect(() => {
+  fetch(
+    `https://${import.meta.env.VITE_SANITY_PROJECT_ID}.api.sanity.io/v2024-01-01/data/query/${import.meta.env.VITE_SANITY_DATASET || "production"}?query=${encodeURIComponent('*[_type=="heroWords"][0].words')}`
+  )
+    .then(res => res.json())
+    .then(data => {
+      if (data.result?.length) setHeroWords(data.result);
+    })
+    .catch(() => {}); // silent fail, keeps static fallback
+}, []);
+
   const [scrolled, setScrolled] = useState(false);
   const [mob, setMob] = useState(false);
 
@@ -189,7 +204,7 @@ export default function App() {
           </div>
           <R delay={0.15}>
             <h1 className="hx" style={{ marginBottom: 40 }}>
-              <span style={{ display: "block" }}>Experience,</span>
+              <span style={{ display: "block" }}><RotatingWord words={content.heroWords} /></span>
               <span style={{ display: "block", color: A }}>in-the-loop.</span>
             </h1>
           </R>

@@ -204,7 +204,7 @@ export default function App() {
           </div>
           <R delay={0.15}>
             <h1 className="hx" style={{ marginBottom: 40 }}>
-              <span style={{ display: "block" }}><RotatingWord words={content.heroWords} /></span>
+              <span style={{ display: "block" }}><RotatingWord words={heroWords} /></span>
               <span style={{ display: "block", color: A }}>in-the-loop.</span>
             </h1>
           </R>

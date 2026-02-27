@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import RotatingWord from './RotatingWord';
 
 /* ═══ HOOKS ═══ */
@@ -43,13 +44,15 @@ function R({ children, delay = 0, className = "" }) {
 
 function Logo() {
   return (
-    <img
-      src="/images/marliin-logo.png"
-      alt="Marliin"
-      width={83}
-      height={20}
-      style={{ display: "block", height: 20, width: "auto" }}
-    />
+    <Link to="/">
+      <img
+        src="/images/marliin-logo.png"
+        alt="Marliin"
+        width={83}
+        height={20}
+        style={{ display: "block", height: 20, width: "auto" }}
+      />
+    </Link>
   );
 }
 
@@ -93,6 +96,34 @@ const CREDS = content?.creds?.length ? content.creds : FALLBACK.creds;
 const CASES = content?.cases?.length ? content.cases : FALLBACK.cases;
 const LABS = content?.labs?.length ? content.labs : FALLBACK.labs;
 const LOGS = content?.logs?.length ? content.logs : FALLBACK.logs;
+
+/* ═══ SOLUTIONS DATA ═══ */
+const SOLUTIONS = [
+  {
+    title: "Industry Consolidation",
+    headline: "Turn acquisitions into efficient operations — faster.",
+    blurb: "Rolling up family-owned businesses? We baseline each acquisition's workflows within 2 weeks, then build the dashboards and automations that let you scale without bloating overhead. From metal fab to HVAC to dental — if you're consolidating, we make your ops predictable and profitable.",
+    cta: "Explore Roll-Ups Services →",
+    link: "/roll-ups",
+    active: true,
+  },
+  {
+    title: "Startup Team Extension",
+    headline: "Before you hire a huge team, see what we can do first.",
+    blurb: "One experienced operator + a team of specialized AI agents (product design, engineering, growth) working together to get you to product-market fit. We move fast, make smart decisions, and ship real product — while you focus on customers and fundraising. When you're ready to scale, you'll know exactly what roles to hire.",
+    cta: "Coming Soon",
+    link: null,
+    active: false,
+  },
+  {
+    title: "Supply Chain Compliance",
+    headline: "Stop spending months chasing supplier paperwork.",
+    blurb: "UFLPA compliance means proving your supply chain is free of forced labor, with documentation from every tier. That's dozens of suppliers, hundreds of documents, and months of back-and-forth emails... unless you automate it. We've helped build AI-powered supply chain mapping at Altana and Sayari. Now we're helping customers automate their internal workflows to make the most of those platforms and remove the pain from document collection.",
+    cta: "Coming Soon",
+    link: null,
+    active: false,
+  },
+];
 
 /* ═══ MAIN ═══ */
 export default function App() {
@@ -152,13 +183,13 @@ export default function App() {
         .g2 { display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px) }
         .g3 { display:grid;grid-template-columns:repeat(3,1fr);gap:28px }
         @media(max-width:768px) { .g2,.g3{grid-template-columns:1fr} .dm{display:none!important} .sc{padding:56px 20px} .mob-btn{display:block!important} }
-        .cd { padding:36px;border:1px solid #1A171410;transition:all .4s ease;position:relative;overflow:hidden;background:#FAF7F2 }
+        .cd { padding:36px;border:1px solid #1A171410;transition:all .4s ease;position:relative;overflow:hidden;background:#FAF7F2;display:flex;flex-direction:column }
         .cd::before { content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:${A};transform:scaleX(0);transform-origin:left;transition:transform .4s ease }
         .cd:hover::before { transform:scaleX(1) }
         .cd:hover { border-color:#1A171420 }
         .le { padding:28px 0;border-bottom:1px solid #FAF7F220 }
         .cr { padding:18px 0;border-bottom:1px solid #1A171412;display:flex;justify-content:space-between;align-items:center }
-        .nl { font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#1A171490;cursor:pointer;border:none;background:none;transition:color .2s;padding:0 }
+        .nl { font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#1A171490;cursor:pointer;border:none;background:none;transition:color .2s;padding:0;text-decoration:none }
         .nl:hover { color:${A} }
         .eg { padding:44px;position:relative;background:#FAF7F408;border:1px solid #FAF7F418 }
         .uc { padding:28px 32px;border-left:2px solid ${A}40;margin-bottom:16px;transition:all .3s ease }
@@ -173,11 +204,12 @@ export default function App() {
       {/* ═══ NAV ═══ */}
       <nav className="nf">
         <div className="mw" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px clamp(24px,5vw,80px)" }}>
-          <div style={{ cursor: "pointer", zIndex: 201 }} onClick={() => go("hero")}><Logo /></div>
+          <div style={{ cursor: "pointer", zIndex: 201 }}><Logo /></div>
           <div className="dm" style={{ display: "flex", gap: 32, alignItems: "center" }}>
+            <Link className="nl" to="/solutions">Solutions</Link>
             <button className="nl" onClick={() => go("practice")}>Practice</button>
             <button className="nl" onClick={() => go("lab")}>Lab</button>
-            <button className="nl" onClick={() => go("log")}>Log</button>
+            <button className="nl" onClick={() => go("about")}>About</button>
             <a className="nl" href={CAL} target="_blank" rel="noopener" style={{ color: A }}>Book a Call →</a>
           </div>
           <button className="mob-btn" onClick={() => setMob(!mob)} style={{ display: "none", zIndex: 201, background: "none", border: "none", fontSize: "1.4rem", cursor: "pointer", color: "#1A1714" }}>
@@ -188,9 +220,10 @@ export default function App() {
 
       {mob && (
         <div className="mm" style={{ display: "flex" }}>
+          <Link className="nl" style={{ fontSize: "1.1rem" }} to="/solutions" onClick={() => setMob(false)}>Solutions</Link>
           <button className="nl" style={{ fontSize: "1.1rem" }} onClick={() => go("practice")}>Practice</button>
           <button className="nl" style={{ fontSize: "1.1rem" }} onClick={() => go("lab")}>Lab</button>
-          <button className="nl" style={{ fontSize: "1.1rem" }} onClick={() => go("log")}>Log</button>
+          <button className="nl" style={{ fontSize: "1.1rem" }} onClick={() => go("about")}>About</button>
           <a className="bp" href={CAL} target="_blank" rel="noopener">Book a Call</a>
         </div>
       )}
@@ -246,8 +279,60 @@ export default function App() {
         </div>
       </section>
 
-      {/* ═══ BRETT'S STORY ═══ */}
-      <section className="sc sw">
+      {/* ═══ SOLUTIONS SECTION ═══ */}
+      <section id="solutions" className="sc sw">
+        <div className="mw">
+          <R>
+            <p className="bs" style={{ marginBottom: 16 }}>Solutions</p>
+            <h2 className="hl" style={{ marginBottom: 16 }}>Where AI meets<br /><span className="ac">real operations.</span></h2>
+            <p className="bl" style={{ maxWidth: 560, marginBottom: 56 }}>We've built products, led teams, and shipped AI systems at companies like Altana, Carta, and Mixpanel. Now we bring that same discipline to specific, high-impact use cases where AI creates measurable value.</p>
+          </R>
+          <div className="g3">
+            {SOLUTIONS.map((s, i) => (
+              <R key={i} delay={i * 0.1}>
+                <div className="cd">
+                  <p className="bs" style={{ marginBottom: 20 }}>{s.title}</p>
+                  <h3 className="hm" style={{ marginBottom: 16 }}>{s.headline}</h3>
+                  <p className="bl" style={{ marginBottom: 28, fontSize: ".94rem", flex: 1 }}>{s.blurb}</p>
+                  {s.active ? (
+                    <Link 
+                      to={s.link} 
+                      style={{ 
+                        fontSize: ".85rem", 
+                        fontWeight: 500, 
+                        color: A, 
+                        textDecoration: "none",
+                        marginTop: "auto"
+                      }}
+                    >
+                      {s.cta}
+                    </Link>
+                  ) : (
+                    <span 
+                      style={{ 
+                        fontSize: ".85rem", 
+                        fontWeight: 500, 
+                        color: "#1A171450",
+                        marginTop: "auto"
+                      }}
+                    >
+                      {s.cta}
+                    </span>
+                  )}
+                </div>
+              </R>
+            ))}
+          </div>
+          <R delay={0.4}>
+            <div style={{ marginTop: 48, textAlign: "center" }}>
+              <Link className="bo" to="/solutions">View All Solutions →</Link>
+            </div>
+          </R>
+        </div>
+      </section>
+
+      {/* ═══ ABOUT / BRETT'S STORY ═══ */}
+      <section id="about" className="sc">
         <div className="mw">
           <div className="g2" style={{ alignItems: "center" }}>
             <R>
@@ -259,7 +344,7 @@ export default function App() {
               </div>
             </R>
             <R delay={0.15}>
-              <p className="bs" style={{ marginBottom: 16 }}>The Builder</p>
+              <p className="bs" style={{ marginBottom: 16 }}>About</p>
               <h2 className="hm" style={{ marginBottom: 20 }}>From Web 1.0 to the agent era.<br />Always at the frontier.</h2>
               <p className="bl" style={{ marginBottom: 16 }}>
                 Brett Marlin has spent 25 years chasing what comes next. He started designing for the web in 2000, ran a digital agency for eleven years serving AOL, McKinsey, and Warner Music, then led product design at four unicorn-stage companies: Mixpanel, Carta, Blend, and Altana AI.
@@ -473,7 +558,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ═══ LOG ═══ */}
+      {/* ═══ LOG (moved before Contact) ═══ */}
       <section id="log" className="sc sd">
         <div className="mw">
           <div className="g2" style={{ alignItems: "start" }}>

@@ -1,3 +1,4 @@
+// Workflow test - 2026-02-27
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
